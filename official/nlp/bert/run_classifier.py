@@ -407,8 +407,8 @@ def main(_):
                                                    bert_config,
                                                    train_input_fn,
                                                    eval_input_fn)
-
-  trained_model.save_weights(os.path.join(FLAGS.model_dir, "/trained_model"))
+  trained_model_path = os.path.join(FLAGS.model_dir, "/trained_model/model_ckpt")
+  trained_model.save_weights()
   # add testing accuracy process
   testing_dataset = test_input_fn()
   test_data_list = list(testing_dataset.as_numpy_iterator())

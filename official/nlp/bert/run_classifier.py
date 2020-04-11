@@ -408,7 +408,8 @@ def main(_):
                                                    train_input_fn,
                                                    eval_input_fn)
   trained_model_path = os.path.join(FLAGS.model_dir, "/trained_model/model_ckpt")
-  trained_model.save_weights()
+  trained_model.save_weights(trained_model_path)
+  print("model has been saved at %s" % trained_model_path)
   # add testing accuracy process
   testing_dataset = test_input_fn()
   test_data_list = list(testing_dataset.as_numpy_iterator())

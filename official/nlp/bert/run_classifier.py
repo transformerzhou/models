@@ -408,7 +408,7 @@ def main(_):
                                                    train_input_fn,
                                                    eval_input_fn)
 
-  trained_model.save_weights(FLAGS.model_dir)
+  trained_model.save_weights(os.path.join(FLAGS.model_dir, "/trained_model"))
   # add testing accuracy process
   testing_dataset = test_input_fn()
   test_data_list = list(testing_dataset.as_numpy_iterator())
